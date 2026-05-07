@@ -61,12 +61,11 @@ function detectSector(symbol, yahooSector) {
 }
 
 // ─── Yahoo Finance API ─────────────────────────────────────────────
-const PROXY = "https://api.allorigins.win/get?url=";
+const PROXY = "https://corsproxy.io/?";
 
 async function fetchYF(url) {
   const r = await fetch(PROXY + encodeURIComponent(url));
-  const j = await r.json();
-  return JSON.parse(j.contents);
+  return await r.json();
 }
 async function getQuote(sym) {
   const d = await fetchYF(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${sym}`);
