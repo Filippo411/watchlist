@@ -66,7 +66,8 @@ function detectSector(symbol, industry) {
 
 // ─── Finnhub API calls ─────────────────────────────────────────────
 const fh = async (path) => {
-  const r = await fetch(`${FH}${path}&token=${API_KEY}`);
+  const target = encodeURIComponent(`https://finnhub.io/api/v1${path}&token=X`);
+  const r = await fetch(`${FH_PROXY}?url=${target}`);
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   return r.json();
 };
