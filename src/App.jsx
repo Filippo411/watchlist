@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 
 // ─── CONFIG ────────────────────────────────────────────────────────
 const API_KEY = "d7ub66pr01qnv95mut3gd7ub66pr01qnv95mut40";
-const FH = "https://finnhub.io/api/v1";
+const FH_PROXY = "https://watchlistfinance.filo411.workers.dev";
 
 // ─── Device detection ──────────────────────────────────────────────
 function useDevice() {
