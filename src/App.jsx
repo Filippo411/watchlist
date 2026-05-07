@@ -129,7 +129,8 @@ async function fetchStock(symbol) {
       fh(`/stock/metric?symbol=${fhSym}&metric=all`),
     ]);
 
-    if (!quote || quote.c === 0) throw new Error("Ticker non trovato o mercato chiuso");
+    if (!quote || (quote.c === 0 && quote.pc === 0)) throw new Error("Ticker non trovato");
+    const price = quote.c || quote.pc;
 
     const price = quote.c;
     const m = financials?.metric || {};
